@@ -109,13 +109,12 @@ your domain, and your data will outperform them. Start here, then write your own
 Each skill is distilled from a public diagnostic you can read and rerun:
 
 - **The confidently-wrong fine-tune**: a model at 99.75% offline, 90.0% in the field, confident on
-  the wrong answers. [autopsy link]
+  the wrong answers. [slm-autopsy](https://github.com/ByteStack-Labs/slm-autopsy). Full writeup: [premature convergence](https://medium.com/@bytestacklabs/premature-convergence-ea9fde1e88f2), [the model that passed every benchmark](https://medium.com/@bytestacklabs/the-model-that-passed-every-benchmark-769f5986feff), and [comprehension debt](https://medium.com/@bytestacklabs/comprehension-debt-0b1bd9e6230e).
 - **The agents reality check**: a 73-point spread between agents, and zero positive synergy when
-  chained. [writeup link]
+  chained. [ai-agents-reality-check](https://github.com/Cre4T3Tiv3/ai-agents-reality-check)
 - **Throughput under real load**: validated GFLOPS on constrained hardware, not quoted ones.
-  [writeup link]
+  [jetson-orin-matmul-analysis](https://github.com/Cre4T3Tiv3/jetson-orin-matmul-analysis)
 
-(Replace the bracketed links with the canonical repo URLs before publishing.)
 
 ## If it is your system that is failing
 
