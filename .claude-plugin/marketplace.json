@@ -8,5 +8,13 @@
     "description": "Production-reliability plugins for AI agents and ML systems, from ByteStack Labs.",
     "version": "0.2.0"
   },
-  "plugins": []
+  "plugins": [
+    {
+      "name": "agent-reliability",
+      "source": "./agent-reliability",
+      "description": "Audit and diagnose AI agents and ML systems that pass evaluation but fail in production. Start with production-autopsy.",
+      "category": "ai",
+      "keywords": ["agents", "reliability", "evals", "production", "calibration", "diagnostics"]
+    }
+  ]
 }
