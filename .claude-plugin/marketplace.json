@@ -1,0 +1,12 @@
+{
+  "name": "bytestack-labs",
+  "owner": {
+    "name": "ByteStack Labs",
+    "url": "https://bytestacklabs.com"
+  },
+  "metadata": {
+    "description": "Production-reliability plugins for AI agents and ML systems, from ByteStack Labs.",
+    "version": "0.2.0"
+  },
+  "plugins": []
+}
