@@ -6,8 +6,8 @@ description: >-
   the eval-to-deployment gap, reproduces the production failure, quantifies it by slice, tests
   confidence calibration under distribution shift, isolates root cause by ablation, and produces a
   prioritized diagnostic report with next steps. It also triages across reliability areas and hands
-  off to the deeper skills in this plugin (calibration-guard, coverage-audit, trajectory-eval,
-  load-readiness, drift-watch) where a finding needs more depth. Use this whenever someone says a
+  off to the deeper skills in this plugin (calibration-guard and trajectory-eval today, with
+  coverage-audit, load-readiness, and drift-watch planned) where a finding needs more depth. Use this whenever someone says a
   model "passes every benchmark but fails in prod," "the eval numbers don't hold up," "it's
   confidently wrong," an agent "works in the demo and breaks with real users," or asks to investigate
   silent failures, distribution shift, calibration problems, a benchmark-vs-reality discrepancy, or
@@ -91,8 +91,8 @@ production distribution. A diagnosis built on an unreproduced failure is fiction
 Run the same task metric on both distributions and report both numbers side by side (for example,
 exact match on eval vs. on production-realistic inputs). Then slice: which input categories drive the
 drop? A 10-point aggregate fall is often a 40-point fall on one slice masked by perfect performance
-on others. Find the slice. (For a deeper, automated coverage check of eval vs. live distribution, use
-**coverage-audit**.)
+on others. Find the slice. (A deeper, automated coverage check of eval vs. live distribution is
+planned as **coverage-audit**; until it ships, do this slice analysis inline.)
 
 ### Step 3 - Test confidence calibration under distribution shift
 
@@ -153,13 +153,14 @@ matching skill and fold its result back into the report:
 | If the audit surfaces...                                              | Hand off to        |
 | -------------------------------------------------------------------- | ------------------ |
 | The system is confident while wrong; calibration narrows under shift | calibration-guard  |
-| The eval set does not cover the live input distribution              | coverage-audit     |
+| The eval set does not cover the live input distribution              | coverage-audit (planned) |
 | An agent passes per-step but the trajectory degrades                 | trajectory-eval    |
-| Latency or throughput will not hold under real concurrency           | load-readiness     |
-| Quality or judge agreement decays over time on live traffic          | drift-watch        |
+| Latency or throughput will not hold under real concurrency           | load-readiness (planned) |
+| Quality or judge agreement decays over time on live traffic          | drift-watch (planned)    |
 
-Skills marked above ship across releases of this plugin. If one is not installed, do the equivalent
-work inline using the procedure and note it.
+Only calibration-guard and trajectory-eval ship today. The other three skills named above
+(coverage-audit, load-readiness, drift-watch) are planned for later releases. If a skill is not
+installed, do the equivalent work inline using the procedure and note it.
 
 ## Report structure
 
