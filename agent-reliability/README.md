@@ -108,12 +108,18 @@ your domain, and your data will outperform them. Start here, then write your own
 
 Each skill is distilled from a public diagnostic you can read and rerun:
 
-- **The confidently-wrong fine-tune**: a model at 99.75% offline, 90.0% in the field, confident on
-  the wrong answers. [slm-autopsy](https://github.com/ByteStack-Labs/slm-autopsy). Full writeup: [premature convergence](https://medium.com/@bytestacklabs/premature-convergence-ea9fde1e88f2), [the model that passed every benchmark](https://medium.com/@bytestacklabs/the-model-that-passed-every-benchmark-769f5986feff), and [comprehension debt](https://medium.com/@bytestacklabs/comprehension-debt-0b1bd9e6230e).
-- **The agents reality check**: a 73-point spread between agents, and zero positive synergy when
-  chained. [ai-agents-reality-check](https://github.com/Cre4T3Tiv3/ai-agents-reality-check)
-- **Throughput under real load**: validated GFLOPS on constrained hardware, not quoted ones.
-  [jetson-orin-matmul-analysis](https://github.com/Cre4T3Tiv3/jetson-orin-matmul-analysis)
+- **The format-fragility autopsy** (backs production-autopsy): an extractor at 100% exact match on
+  evaluation drops to about 86% on the same fields with shifted formatting. The saved per-shift slices
+  show order-preserving changes survive while field-moving ones collapse: it learned layout, not
+  meaning. Runs with no model and no GPU, every number reproducible.
+  [agent-reliability-examples](https://github.com/ByteStack-Labs/agent-reliability-examples)
+- **The agents reality check** (backs trajectory-eval): a 73-point spread between agents, and zero
+  positive synergy when chained. [ai-agents-reality-check](https://github.com/Cre4T3Tiv3/ai-agents-reality-check)
+- **Throughput under real load** (the verified-numbers ethos): validated GFLOPS on constrained
+  hardware, not quoted ones. [jetson-orin-matmul-analysis](https://github.com/Cre4T3Tiv3/jetson-orin-matmul-analysis)
+
+calibration-guard ships the same methodology; its worked demonstration, a fixture that emits a real
+confidence signal, is the next example landing in agent-reliability-examples.
 
 
 ## If it is your system that is failing

@@ -217,13 +217,14 @@ What is not yet established, and what measurement would resolve it.
 
 ## Worked illustration
 
-A Qwen2.5-1.5B model fine-tuned for an 11-field structured-extraction task scored 99.75% exact match
-on evaluation but 90.0% on production-realistic inputs under a shift in formatting distribution.
-Slicing showed the drop concentrated where field formatting diverged from the eval set. Calibration
-analysis found the confidence gap between correct and incorrect predictions nearly doubled under the
-shift: the model was confidently wrong, not uncertain. Ablations that permuted field order and
-stripped formatting cues collapsed performance, supporting the conclusion that the model had learned
-formatting-dependent positional associations rather than semantic extraction. Attention patterns and
-eval-vs-production KL-divergence corroborated the behavioral finding. The full pipeline (data
-generation, training, evaluation, failure reproduction, and analysis) reproduced end to end on a
-consumer GPU in under two hours, every number verified. That is the target shape of an autopsy.
+A deliberately format-fragile extractor scored 100% exact match on evaluation but about 86% on the
+same eleven fields once the formatting shifted. Slicing by the saved shift type located the failure
+precisely: order-preserving changes (different delimiters, extra whitespace) held at 100%, while
+every change that moved fields (reordering, single-line compaction, decorative extra lines) collapsed
+to zero. Because the per-record shift type was persisted, the drop could be attributed to its cause
+rather than guessed. The root cause was positional: the extractor assigned values by line position
+rather than by the label beside them, so it read layout instead of meaning. The whole thing
+reproduces from the standard library with no model and no GPU, every number regenerating from a fixed
+seed. That is the target shape of an autopsy: the gap reproduced, quantified by slice, and traced to a
+mechanism anyone can rerun. The full worked example is in
+[agent-reliability-examples](https://github.com/ByteStack-Labs/agent-reliability-examples).

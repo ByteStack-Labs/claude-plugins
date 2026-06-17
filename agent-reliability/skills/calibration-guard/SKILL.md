@@ -139,12 +139,15 @@ What is not yet established, and the measurement that would resolve it.
 
 ## Worked illustration
 
-A Qwen2.5-1.5B model fine-tuned for structured extraction scored 99.75% exact match on evaluation and
-90.0% on production-realistic inputs under a shift in formatting distribution. The decisive finding
-was not the ten-point accuracy drop. It was that the incorrect predictions came back at roughly 82%
-confidence, nearly indistinguishable from the correct ones: the gap between confidence on correct and
-incorrect predictions nearly doubled under the shift, in the wrong direction. The model was not
-uncertain about its errors. It was confident on them, and nothing downstream could have known.
-Reframing the problem from "ten percent less accurate" to "confidently wrong eight percent of the
-time, with no signal" changed both its severity and its fix. Producing that reframing, with the
-numbers behind it, is the job of this skill.
+The failure this skill exists to catch has a recognizable shape. Accuracy slips under distribution
+shift, often only a few points, and a team reasonably treats it as a small regression. But when you
+measure the confidence signal alongside correctness, the real problem appears: the wrong answers come
+back at nearly the same confidence as the right ones, so the gap that should separate them has
+narrowed or inverted. Nothing downstream can tell a correct prediction from an incorrect one by
+confidence alone, which means a confidence threshold set during evaluation silently stops protecting
+you in production. The reframing, from "a few points less accurate" to "confidently wrong, with no
+signal to catch it," changes both the severity and the fix. Producing that reframing, backed by a
+reliability diagram, an expected-calibration-error number, and a high-confidence error rate that
+anyone can rerun, is the job of this skill. A worked demonstration on a fixture that emits a real
+confidence signal is the next example landing in
+[agent-reliability-examples](https://github.com/ByteStack-Labs/agent-reliability-examples).

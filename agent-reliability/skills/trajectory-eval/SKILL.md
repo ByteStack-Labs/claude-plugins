@@ -132,8 +132,9 @@ What is not yet established, and the measurement that would resolve it.
 
 Three agent archetypes were put through stress testing, network-resilience analysis, and
 ensemble-coordination measurement, all with proper statistical validation. The spread between
-archetypes was 73 points, and chaining them produced zero positive synergy: the composed system was no
-better than its parts, and each step could pass its own check while the trajectory degraded. The hype
+archetypes ran 66 to 73 points, and chaining them produced zero positive synergy: across every pattern the
+composed system was no better than its parts, often worse, while each step could still pass its own check as
+the trajectory degraded. The hype
 held that more agents cooperate into better results. The trajectory held otherwise, and the number
 proved it. Evaluating the path, rather than the final answer or the isolated step, is what surfaced
 the difference.
