@@ -150,4 +150,4 @@ signal to catch it," changes both the severity and the fix. Producing that refra
 reliability diagram, an expected-calibration-error number, and a high-confidence error rate that
 anyone can rerun, is the job of this skill. A worked demonstration on a fixture that emits a real
 confidence signal is the next example landing in
-[agent-reliability-examples](https://github.com/ByteStack-Labs/agent-reliability-examples).
+[agent-reliability-receipts](https://github.com/ByteStack-Labs/agent-reliability-receipts).

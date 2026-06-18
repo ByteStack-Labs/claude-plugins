@@ -112,14 +112,14 @@ Each skill is distilled from a public diagnostic you can read and rerun:
   evaluation drops to about 86% on the same fields with shifted formatting. The saved per-shift slices
   show order-preserving changes survive while field-moving ones collapse: it learned layout, not
   meaning. Runs with no model and no GPU, every number reproducible.
-  [agent-reliability-examples](https://github.com/ByteStack-Labs/agent-reliability-examples)
+  [agent-reliability-receipts](https://github.com/ByteStack-Labs/agent-reliability-receipts)
 - **The agents reality check** (backs trajectory-eval): a 73-point spread between agents, and zero
   positive synergy when chained. [ai-agents-reality-check](https://github.com/Cre4T3Tiv3/ai-agents-reality-check)
 - **Throughput under real load** (the verified-numbers ethos): validated GFLOPS on constrained
   hardware, not quoted ones. [jetson-orin-matmul-analysis](https://github.com/Cre4T3Tiv3/jetson-orin-matmul-analysis)
 
 calibration-guard ships the same methodology; its worked demonstration, a fixture that emits a real
-confidence signal, is the next example landing in agent-reliability-examples.
+confidence signal, is the next example landing in agent-reliability-receipts.
 
 
 ## If it is your system that is failing

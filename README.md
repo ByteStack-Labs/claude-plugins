@@ -16,7 +16,7 @@ Maintained by [ByteStack Labs](https://bytestacklabs.com).
 
 | Plugin | What it does | Install | Status |
 | --- | --- | --- | --- |
-| **agent-reliability** | Audit AI agents and ML systems that pass evaluation but fail in production. Skills: production-autopsy, calibration-guard, trajectory-eval. | `/plugin install agent-reliability` | shipped |
+| **agent-reliability** | Audit AI agents and ML systems that pass evaluation but fail in production. Skills: production-autopsy, calibration-guard, trajectory-eval. | `/plugin install agent-reliability@bytestack-labs` | shipped |
 
 Install a plugin, then invoke its skills as `/<plugin>:<skill>`, for example
 `/agent-reliability:production-autopsy`.

@@ -227,4 +227,4 @@ rather than by the label beside them, so it read layout instead of meaning. The 
 reproduces from the standard library with no model and no GPU, every number regenerating from a fixed
 seed. That is the target shape of an autopsy: the gap reproduced, quantified by slice, and traced to a
 mechanism anyone can rerun. The full worked example is in
-[agent-reliability-examples](https://github.com/ByteStack-Labs/agent-reliability-examples).
+[agent-reliability-receipts](https://github.com/ByteStack-Labs/agent-reliability-receipts).
