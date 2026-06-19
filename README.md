@@ -36,8 +36,13 @@ claude-plugins/                       this marketplace
     ├── LICENSE
     └── skills/
         ├── production-autopsy/
+        │   ├── SKILL.md
+        │   └── scripts/
+        │       └── finalize.py        deterministic placement + certification
         ├── calibration-guard/
+        │   └── SKILL.md
         └── trajectory-eval/
+            └── SKILL.md
 ```
 
 ## Adding an arc
