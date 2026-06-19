@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-finalize.py — the single deterministic authority for placing an autopsy receipt.
+finalize.py - the single deterministic authority for placing an autopsy receipt.
 
 The skill (an agent) writes its findings wherever it likes. This script, and only
 this script, decides where the receipt lands, what it is named, and whether it is

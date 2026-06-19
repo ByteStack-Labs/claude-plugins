@@ -55,6 +55,11 @@ These are non-negotiable and define the methodology:
   which are hypotheses still to be tested. Calibrate the confidence of the diagnosis itself.
 - **Reproducibility is part of the deliverable.** The diagnosis is only as good as the script that
   regenerates it. Seed everything. Report the compute envelope.
+- **Never regenerate committed fixture data.** If the target already ships a fixture
+  (committed data/, results/, or equivalent), treat it as immutable ground truth
+  and measure against it as-is. Synthesize new data only when none exists, and say
+  so explicitly. Re-deriving committed numbers is the job; overwriting the inputs
+  that produced them is never permitted.
 
 ## The diagnostic procedure
 
@@ -74,6 +79,10 @@ problem and you should say so. Most of the time they differ in a way the team ha
 difference is the lead.
 
 ### Step 1 - Reproduce the production failure
+
+Before constructing inputs, check whether the target already ships a canonical fixture.
+If it does, use it unchanged and do not regenerate it. Build new inputs only 
+when the production distribution is genuinely unavailable.
 
 You cannot diagnose what you cannot reproduce. Construct or obtain inputs that match the production
 distribution where the failure occurs, not the eval distribution. Common axes of divergence to probe:
