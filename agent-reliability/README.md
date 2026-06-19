@@ -1,11 +1,11 @@
 # agent-reliability
 
-**Teach your coding agent to ship AI that survives production, not just the demo.**
+**Make AI that survives production, not just the demo.**
 
-A set of Claude skills for the reliability of ML models and agents. They encode the failure modes
-that do not show up in evaluation and only appear once real users and real load arrive: the model
-that is confidently wrong, the eval set that never covered production, the agent whose steps each
-pass while the whole trajectory degrades.
+A set of Claude Code skills for the reliability of ML models and agents. They encode the failure
+modes that do not show up in evaluation and only appear once real users and real load arrive: the
+model that is confidently wrong, the eval set that never covered production, the agent whose steps
+each pass while the whole trajectory degrades.
 
 Built and maintained by [ByteStack Labs](https://bytestacklabs.com). Every skill here comes from a
 real, public diagnostic, not a whiteboard.
@@ -18,6 +18,17 @@ It ships three skills:
   correctness come apart.
 - `trajectory-eval`, for agents that degrade over multiple steps. It finds the step that introduces
   the failure.
+
+## Where this fits
+
+Evals ask whether the output is good. Error analysis, judge design, validation against human labels:
+that discipline is necessary, and it is not what this is. These skills ask the next question. When a
+system that passed its evals meets production, does it hold?
+
+Judge where you must; verify where you can. Evals judge. These skills verify. A model that scores
+100% offline is good on the distribution you measured; that says nothing about whether the
+distribution held. agent-reliability lives in the gap between the two, and every number it returns
+reproduces from runnable code, with no model and no judge in the loop.
 
 ## Why skills for production reliability
 
@@ -101,8 +112,9 @@ and returns a prioritized report. From there it hands off to the deeper skills b
 | **load-readiness**     | Verify latency and throughput under real concurrency before production traffic         | planned |
 | **drift-watch**        | Monitor model and judge agreement decay on live traffic over time                      | planned |
 
-These skills encode failure modes that generalize across projects. Skills grounded in your stack,
-your domain, and your data will outperform them. Start here, then write your own.
+Treat these as a floor, not a ceiling. The diagnostics you build for your own stack, your own data,
+and your own failure history will go deeper than anything general can. Start with these, then build
+the ones only you can.
 
 ## Where these come from
 
@@ -120,7 +132,6 @@ Each skill is distilled from a public diagnostic you can read and rerun:
 
 calibration-guard ships the same methodology; its worked demonstration, a fixture that emits a real
 confidence signal, is the next example landing in agent-reliability-receipts.
-
 
 ## If it is your system that is failing
 
