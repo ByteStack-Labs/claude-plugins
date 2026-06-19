@@ -196,11 +196,29 @@ Distinguish measured from inferred.
 Attention, activation, or divergence evidence.
 
 ## Reproducibility
-What is bundled, the seeds, and the compute envelope to rerun end to end.
+What is bundled, the seeds, and the compute envelope to rerun end to end. Reference
+the verification script by a path relative to this report (`python3 verify.py` from
+its own directory), never a repo-rooted path, so the receipt survives any move.
 
 ## Open questions
 What is not yet established, and what measurement would resolve it.
 ```
+
+## Writing the receipt
+
+This section is an instruction to you, the agent. It is not part of the report you produce.
+
+Do not choose an output directory yourself. Write `REPORT.md` and the `verify.py` to a scratch
+location, then hand both to the bundled scaffolder, which is the single authority on where artifacts
+land and whether they are allowed to ship:
+
+```bash
+python3 scripts/finalize.py <fixture> <path-to-REPORT.md> <path-to-verify.py>
+```
+
+It resolves the target repo root, places the pair under `receipts/<fixture>/`, fails if the report
+hardcodes a repo-rooted verify path, and fails if `verify.py` does not reproduce. A receipt that does
+not certify does not get committed.
 
 ## Guardrails
 
