@@ -36,7 +36,7 @@ Why "done" is a claim and not a proof:
 
 | Plugin                | What it does                                                                                                                                | Install                                            | Status  |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| **agent-reliability** | Audit AI agents and ML systems that pass evaluation but fail in production. Skills: production-autopsy, calibration-guard, trajectory-eval. | `/plugin install agent-reliability@bytestack-labs` | shipped |
+| **agent-reliability** | Audit AI agents and ML systems that pass evaluation but fail in production. Skills: production-autopsy, tool-eval, calibration-guard, trajectory-eval. | `/plugin install agent-reliability@bytestack-labs` | shipped |
 
 Install a plugin, then invoke its skills as `/<plugin>:<skill>`, for example
 `/agent-reliability:production-autopsy`.
@@ -49,11 +49,12 @@ so anyone can rerun it. Receipts live in
 [agent-reliability-receipts](https://github.com/ByteStack-Labs/agent-reliability-receipts),
 where the full "what is shipped and what is landing" table is maintained.
 
-| Skill                  | What it proves                                                                                                                          | Public receipt                 |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| **production-autopsy** | Where the eval stops matching production, which slice, a group of cases sharing one trait, carries the failure, and how much of the error is silent rather than loud. | shipped — `invoice-extraction` |
-| **calibration-guard**  | Whether a model's stated confidence matches its real accuracy, and where it is overconfident.                                          | landing                        |
-| **trajectory-eval**    | Whether a multi-step agent actually reaches the goal, and where in the trajectory it silently goes wrong.                              | landing                        |
+| Skill                  | Value                                                | What it proves                                                                                                                          | Public receipt                 |
+| ---------------------- | ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
+| **production-autopsy** | Find the silent production failure your eval cleared. | Where the eval stops matching production, which slice, a group of cases sharing one trait, carries the failure, and how much of the error is silent rather than loud. | shipped — `invoice-extraction` |
+| **tool-eval**          | Tell a formatting miss from a real tool failure.     | Whether a tool eval's score is real: it separates a formatting miss (correct value marked wrong) from a silent failure (wrong value marked right), recomputing the answer from raw inputs rather than a stored ground truth. | shipped — `tool-eval` |
+| **calibration-guard**  | Catch confident-but-wrong before it ships.           | Whether a model's stated confidence matches its real accuracy, and where it is overconfident.                                          | landing                        |
+| **trajectory-eval**    | Locate where a passing agent silently breaks.        | Whether a multi-step agent actually reaches the goal, and where in the trajectory it silently goes wrong.                              | landing                        |
 
 Until a skill's receipt is public, treat its results as not-yet-reproducible and do
 not cite them as proven. The discipline is the product: a number that has not shipped
@@ -77,6 +78,8 @@ claude-plugins/                       this marketplace
         │   ├── SKILL.md
         │   └── scripts/
         │       └── finalize.py        deterministic placement + certification
+        ├── tool-eval/
+        │   └── SKILL.md
         ├── calibration-guard/
         │   └── SKILL.md
         └── trajectory-eval/
