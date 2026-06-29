@@ -1,7 +1,7 @@
 {
   "name": "agent-reliability",
   "description": "Claude skills for AI agent and ML reliability: reproduce the eval-to-production gap, catch confidently-wrong outputs, and prove root cause with verified numbers. Start with production-autopsy.",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": {
     "name": "Jesse Moses (ByteStack Labs)"
   },
